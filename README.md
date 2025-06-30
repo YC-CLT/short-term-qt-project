@@ -54,8 +54,9 @@
 ## 资料库
 
 1. git与gitee的使用：<https://yc-clt.top/post/2025-05-29_git-note/>
-2. Qt入门：<https://www.bilibili.com/video/BV1N34y1H7x7?spm_id_from=333.788.videopod.episodes&vd_source=18bbde63abfba4a54a7606738c8a57af&p=6>
+2. Qt入门（视频）：<https://www.bilibili.com/video/BV1N34y1H7x7?spm_id_from=333.788.videopod.episodes&vd_source=18bbde63abfba4a54a7606738c8a57af&p=6>
 3. Qt下载与配置：<https://zhuanlan.zhihu.com/p/683591671>
+4. Qt安装目录结构，用于排除环境错误：<https://www.cnblogs.com/iriczhao/p/11272604.html>
 
 ## 小贴士
 
