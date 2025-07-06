@@ -58,6 +58,7 @@
 3. Qt下载与配置：<https://zhuanlan.zhihu.com/p/683591671>
 4. Qt安装目录结构，用于排除环境错误：<https://www.cnblogs.com/iriczhao/p/11272604.html>
 5. MySQL入门: <https://yc-clt.top/post/2025-07-06_mysql-note/>
+6. 手动编译Qt的MySQL驱动<https://yc-clt.top/post/2025-07-07_make-qt-mysql-driver-by-hand/>
 
 ## 小贴士
 
