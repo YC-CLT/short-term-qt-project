@@ -57,6 +57,7 @@
 2. Qt入门（视频）：<https://www.bilibili.com/video/BV1N34y1H7x7?spm_id_from=333.788.videopod.episodes&vd_source=18bbde63abfba4a54a7606738c8a57af&p=6>
 3. Qt下载与配置：<https://zhuanlan.zhihu.com/p/683591671>
 4. Qt安装目录结构，用于排除环境错误：<https://www.cnblogs.com/iriczhao/p/11272604.html>
+5. MySQL入门: <https://yc-clt.top/post/2025-07-06_mysql-note/>
 
 ## 小贴士
 
