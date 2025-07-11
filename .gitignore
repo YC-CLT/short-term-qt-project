@@ -53,5 +53,6 @@ compile_commands.json
 
 *_qmlcache.qrc
 
-./build/*
-./vscode/*
+# 构建目录和IDE配置
+build
+.vscode/*
