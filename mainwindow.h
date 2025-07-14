@@ -11,12 +11,23 @@
 #include <QStackedWidget>
 #include <QDialog>
 #include <QMessageBox>
+#include <QbuttonGroup>
+
 #include <QDate>
 #include <QTime>
 #include <QDateTime>
 #include <QDebug>
-#include <QButtonGroup>
 #include <QPixmap>
+#include <QThread>
+#include <QTimer>
+
+#include <QTableView>
+#include <QSqlTableModel>
+#include <QHeaderView>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlRecord>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -58,6 +69,17 @@ private slots:
                             const QList<QString> &humidity2);
     void on_updateWeatherButton_clicked();
 
+    void on_dayRefreshButton_clicked();
+
+    void on_dayCommitButton_clicked();
+
+    void on_dayDeleteButton_clicked();
+
+    void on_dayCancelButton_clicked();
+
+    void on_dayInsertButton_clicked();
+
+
 private:
     Ui::MainWindow *ui;
     QButtonGroup *buttonGroup;
@@ -65,7 +87,6 @@ private:
     DayMod *dayMod;
     MemMod *memMod;
     AboutMod *aboutMod;
-
 };
 
 #endif // MAINWINDOW_H

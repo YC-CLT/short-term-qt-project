@@ -31,7 +31,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(short-term-qt-project
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        sqlitemod.h sqlitemod.cpp
         memmod.h memmod.cpp
         daymod.h daymod.cpp
         weathermod.h weathermod.cpp

@@ -37,21 +37,21 @@ bool WeatherMod::parselocationData(const QByteArray &data)
                 QJsonObject firstCity = locations[0].toObject();
                 location = firstCity["name"].toString();
                 locationcode = firstCity["id"].toString();
-                qDebug() << "Selected city:" << location << "ID:" << locationcode;
+                //qDebug() << "Selected city:" << location << "ID:" << locationcode;
                 emit locationDataUpdated(location);
                 return true;
             }
             else {
-                qDebug() << "No location data available";
+                //qDebug() << "No location data available";
             }
         }
         else {
-            qDebug() << "Error: " << obj["code"].toString();
+            //qDebug() << "Error: " << obj["code"].toString();
             return false;
         }
     }
     else {
-        qDebug() << "Error: Invalid JSON data";
+        //qDebug() << "Error: Invalid JSON data";
     }
     return false;
 }
@@ -65,7 +65,7 @@ void WeatherMod::getWeatherData1()
     query.addQueryItem("unit", "m"); // 公制单位
     
     url.setQuery(query);
-    qDebug() << url.toString().toUtf8();
+    //qDebug() << url.toString().toUtf8();
 
     QNetworkRequest request(url);
     request.setRawHeader("Accept-Encoding", "gzip");
@@ -90,23 +90,23 @@ void WeatherMod::parseWeatherData1(const QByteArray &data)
             humidity = now["humidity"].toString();   // 湿度
             updateTime = now["obsTime"].toString();  // 更新时间
             
-            qDebug() << "Current weather:"
-                     << "Temp:" << temp
-                     << "FeelsLike:" << feelsLike
-                     << "Weather:" << weathertext
-                     << "Wind:" << windDir << windScale
-                     << "Humidity:" << humidity
-                     << "UpdateTime:" << updateTime
-                     << "weathercode:" << weathercode;
+            //qDebug() << "Current weather:"
+                     //<< "Temp:" << temp
+                     //<< "FeelsLike:" << feelsLike
+                     //<< "Weather:" << weathertext
+                    // << "Wind:" << windDir << windScale
+                    // << "Humidity:" << humidity
+                    // << "UpdateTime:" << updateTime
+                    // << "weathercode:" << weathercode;
 
             emit weather1DataUpdated(temp, feelsLike, weathercode, weathertext, windDir, windScale, humidity, updateTime);
         }
         else {
-            qDebug() << "Error: " << obj["code"].toString();
+            //qDebug() << "Error: " << obj["code"].toString();
         }
     }
     else {
-        qDebug() << "Error: Invalid JSON data";
+        //qDebug() << "Error: Invalid JSON data";
     }
 }
 
@@ -118,7 +118,7 @@ void WeatherMod::getWeatherData2(){
     query.addQueryItem("unit", "m"); // 公制单位
     
     url.setQuery(query);
-    qDebug() << url.toString().toUtf8();
+    //qDebug() << url.toString().toUtf8();
 
     QNetworkRequest request(url);
     request.setRawHeader("Accept-Encoding", "gzip");
@@ -168,21 +168,21 @@ void WeatherMod::parseWeatherData2(const QByteArray &data)
                 windScale2.append(day["windScaleDay"].toString());
                 humidity2.append(day["humidity"].toString());
                 
-                qDebug() << "Day" << i+1 << "Forecast:";
-                qDebug() << "Date:" << fxDate[i];
-                qDebug() << "Sunrise:" << sunrise[i];
-                qDebug() << "Sunset:" << sunset[i];
-                qDebug() << "Moonrise:" << moonrise[i];
-                qDebug() << "Moonset:" << moonset[i];
-                qDebug() << "MoonPhase:" << moonPhase[i];
-                qDebug() << "MoonCode:" << moonCode[i];
-                qDebug() << "TempMax:" << tempMax[i];
-                qDebug() << "TempMin:" << tempMin[i];
-                qDebug() << "IconDay:" << iconDay[i];
-                qDebug() << "TextDay:" << textDay[i];
-                qDebug() << "WindDir2:" << windDir2[i];
-                qDebug() << "WindScale2:" << windScale2[i];
-                qDebug() << "Humidity2:" << humidity2[i];
+                //qDebug() << "Day" << i+1 << "Forecast:";
+                //qDebug() << "Date:" << fxDate[i];
+                //qDebug() << "Sunrise:" << sunrise[i];
+                //qDebug() << "Sunset:" << sunset[i];
+                //qDebug() << "Moonrise:" << moonrise[i];
+                //qDebug() << "Moonset:" << moonset[i];
+                //qDebug() << "MoonPhase:" << moonPhase[i];
+                //qDebug() << "MoonCode:" << moonCode[i];
+                //qDebug() << "TempMax:" << tempMax[i];
+                //qDebug() << "TempMin:" << tempMin[i];
+                //qDebug() << "IconDay:" << iconDay[i];
+                //qDebug() << "TextDay:" << textDay[i];
+                //qDebug() << "WindDir2:" << windDir2[i];
+                //qDebug() << "WindScale2:" << windScale2[i];
+                //qDebug() << "Humidity2:" << humidity2[i];
             }
             
             // 发射信号时传递QList
@@ -191,10 +191,10 @@ void WeatherMod::parseWeatherData2(const QByteArray &data)
                                     moonPhase, moonCode, tempMax, tempMin,
                                     iconDay, textDay, windDir2, windScale2, humidity2);
         } else {
-            qDebug() << "Error: " << obj["code"].toString();
+            //qDebug() << "Error: " << obj["code"].toString();
         }
     } else {
-        qDebug() << "Error: Invalid JSON data";
+        //qDebug() << "Error: Invalid JSON data";
     }
 }
 
@@ -211,7 +211,8 @@ void WeatherMod::handleReply(QNetworkReply *reply)
                     getWeatherData2(); // 位置查询成功后再获取7天预报
                 }
                 else {
-                    qDebug() << "Error: Location data not available";
+                    //qDebug() << "Error: Location data not available";
+
                 }
             } 
             else if(url.contains("weather/now")) {
@@ -223,7 +224,8 @@ void WeatherMod::handleReply(QNetworkReply *reply)
             }
         }
     } else {
-        qDebug() << "Error: " << reply->errorString();
+        //qDebug() << "Error: " << reply->errorString();
+
     }
     reply->deleteLater();
 }
@@ -240,7 +242,8 @@ bool WeatherMod::unzipData(QByteArray &compressedData, QByteArray &uncompressedD
     // 使用更大的缓冲区
     int ret = inflateInit2(&stream, 16 + MAX_WBITS);
     if (ret != Z_OK) {
-        qDebug() << "inflateInit error:" << ret;
+        //qDebug() << "inflateInit error:" << ret;
+
         return false;
     }
 
@@ -254,8 +257,7 @@ bool WeatherMod::unzipData(QByteArray &compressedData, QByteArray &uncompressedD
         ret = inflate(&stream, Z_SYNC_FLUSH);
         
         if (ret == Z_NEED_DICT || ret == Z_DATA_ERROR || ret == Z_MEM_ERROR) {
-            inflateEnd(&stream);
-            qDebug() << "inflate error:" << ret;
+            //qDebug() << "inflate error:" << ret;
             return false;
         }
 

@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     buttonGroup->addButton(ui->weatherButton, 1);
     buttonGroup->addButton(ui->dayButton, 2);
     buttonGroup->addButton(ui->memButton, 3);
-    buttonGroup->addButton(ui->aboutButton, 4);
+    buttonGroup->addButton(ui->settingButton, 4);
 
     // 切页面
     connect(buttonGroup, QOverload<QAbstractButton*>::of(&QButtonGroup::buttonClicked),
@@ -34,7 +34,19 @@ MainWindow::MainWindow(QWidget *parent)
         ui->todayWeatherLabel->setText("今日"+location+"天气：");
         ui->locationLabel->setText(location);
     });
-    
+    // 初始化重要日模块
+    dayMod = new DayMod(this, ui);  
+
+
+
+
+
+
+
+
+
+    memMod = new MemMod(this, ui);
+
 }
 
 void MainWindow::updateWeatherInfo(const QString &temp,
@@ -48,10 +60,10 @@ void MainWindow::updateWeatherInfo(const QString &temp,
 {
     // 更新UI显示
     ui->currentTempLabel->setText(temp+"℃");
-    ui->feelsLikeLabel->setText(feelsLike+"℃");
+    ui->feelsLikeLabel->setText("体感温度："+feelsLike+"℃");
     ui->weatherTextLabel->setText(weathertext);
     ui->windLabel->setText(windDir + windScale+"级");
-    ui->humidityLabel->setText(humidity+"%");
+    ui->humidityLabel->setText("湿度"+humidity+"%");
     ui->updateTimeLabel->setText("更新时间："+QDateTime::fromString(updateTime, Qt::ISODate).toString("yyyy-MM-dd HH:mm"));
     
     // 加载SVG图片并适应标签大小
@@ -206,5 +218,35 @@ void MainWindow::on_updateWeatherButton_clicked()
         weatherMod->location = searchLocation;
         weatherMod->getlocationData();
     }
+}
+
+
+void MainWindow::on_dayRefreshButton_clicked()
+{
+    dayMod->refreshDayTable();
+}
+
+
+void MainWindow::on_dayCommitButton_clicked()
+{
+    dayMod->commitDayTable();
+}
+
+
+void MainWindow::on_dayDeleteButton_clicked()
+{
+    dayMod->deleteDayTable();
+}
+
+
+void MainWindow::on_dayCancelButton_clicked()
+{
+    dayMod->cancelDayTable();
+}
+
+
+void MainWindow::on_dayInsertButton_clicked()
+{
+    dayMod->insertDayTable();
 }
 
