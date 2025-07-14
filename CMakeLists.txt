@@ -34,7 +34,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         memmod.h memmod.cpp
         daymod.h daymod.cpp
         weathermod.h weathermod.cpp
-        aboutmod.h aboutmod.cpp
+        settingmod.h settingmod.cpp
         resources.qrc
         temperaturechart.h temperaturechart.cpp
     )

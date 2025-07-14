@@ -99,7 +99,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="pageHome">
      <property name="font">
@@ -282,7 +282,7 @@
        <rect>
         <x>510</x>
         <y>20</y>
-        <width>131</width>
+        <width>171</width>
         <height>20</height>
        </rect>
       </property>
@@ -2948,17 +2948,100 @@
      </widget>
     </widget>
     <widget class="QWidget" name="pageMem">
-     <widget class="QLabel" name="label_3">
+     <widget class="QTableView" name="memTableView">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>330</y>
-        <width>69</width>
-        <height>19</height>
+        <x>0</x>
+        <y>50</y>
+        <width>681</width>
+        <height>411</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="memCommitButton">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>500</y>
+        <width>99</width>
+        <height>28</height>
        </rect>
       </property>
       <property name="text">
-       <string>4</string>
+       <string>确认</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="memInsertButton">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>500</y>
+        <width>99</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>插入</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="memRefreshButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>500</y>
+        <width>99</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>刷新</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="memMessageLabel">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>0</y>
+        <width>541</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>备忘录</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="memDeleteButton">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>500</y>
+        <width>99</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>删除</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="memCancelButton">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>500</y>
+        <width>99</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>取消</string>
       </property>
      </widget>
     </widget>

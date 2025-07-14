@@ -18,7 +18,7 @@ void WeatherMod::getlocationData()
     query.clear();
     query.addQueryItem("location", QUrl::toPercentEncoding(location)); // 添加 URL 编码
     url.setQuery(query);
-    qDebug() << url.toString().toUtf8();
+    //qDebug() << url.toString().toUtf8();
 
     QNetworkRequest request(url);
     request.setRawHeader("Accept-Encoding", "gzip");

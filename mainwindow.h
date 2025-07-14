@@ -4,7 +4,7 @@
 #include "weathermod.h"
 #include "daymod.h"
 #include "memmod.h"
-#include "aboutmod.h"
+#include "settingmod.h"
 #include "temperaturechart.h"
 
 #include <QMainWindow>
@@ -68,25 +68,14 @@ private slots:
                             const QList<QString> &windScale2,
                             const QList<QString> &humidity2);
     void on_updateWeatherButton_clicked();
-
-    void on_dayRefreshButton_clicked();
-
-    void on_dayCommitButton_clicked();
-
-    void on_dayDeleteButton_clicked();
-
-    void on_dayCancelButton_clicked();
-
-    void on_dayInsertButton_clicked();
-
-
+    
 private:
     Ui::MainWindow *ui;
     QButtonGroup *buttonGroup;
     WeatherMod *weatherMod;
     DayMod *dayMod;
     MemMod *memMod;
-    AboutMod *aboutMod;
+    SettingMod *settingMod;
 };
 
 #endif // MAINWINDOW_H

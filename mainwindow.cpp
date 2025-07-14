@@ -37,15 +37,40 @@ MainWindow::MainWindow(QWidget *parent)
     // 初始化重要日模块
     dayMod = new DayMod(this, ui);  
 
-
-
-
-
-
-
-
+    connect(ui->dayRefreshButton, &QPushButton::clicked, this, [this]() {
+        dayMod->refreshDayTable();
+    });
+    connect(ui->dayCommitButton, &QPushButton::clicked, this, [this]() {
+        dayMod->commitDayTable();
+    });
+    connect(ui->dayDeleteButton, &QPushButton::clicked, this, [this]() {
+        dayMod->deleteDayTable();
+    });
+    connect(ui->dayCancelButton, &QPushButton::clicked, this, [this]() {
+        dayMod->cancelDayTable();
+    });
+    connect(ui->dayInsertButton, &QPushButton::clicked, this, [this]() {
+        dayMod->insertDayTable();
+    });
 
     memMod = new MemMod(this, ui);
+    
+    // 连接按钮信号
+    connect(ui->memRefreshButton, &QPushButton::clicked, this, [this]() {
+        memMod->refreshMemTable();
+    });
+    connect(ui->memCommitButton, &QPushButton::clicked, this, [this]() {
+        memMod->commitMemTable();
+    });
+    connect(ui->memDeleteButton, &QPushButton::clicked, this, [this]() {
+        memMod->deleteMemTable();
+    });
+    connect(ui->memCancelButton, &QPushButton::clicked, this, [this]() {
+        memMod->cancelMemTable();
+    });
+    connect(ui->memInsertButton, &QPushButton::clicked, this, [this]() {
+        memMod->insertMemTable();
+    });
 
 }
 
@@ -219,34 +244,3 @@ void MainWindow::on_updateWeatherButton_clicked()
         weatherMod->getlocationData();
     }
 }
-
-
-void MainWindow::on_dayRefreshButton_clicked()
-{
-    dayMod->refreshDayTable();
-}
-
-
-void MainWindow::on_dayCommitButton_clicked()
-{
-    dayMod->commitDayTable();
-}
-
-
-void MainWindow::on_dayDeleteButton_clicked()
-{
-    dayMod->deleteDayTable();
-}
-
-
-void MainWindow::on_dayCancelButton_clicked()
-{
-    dayMod->cancelDayTable();
-}
-
-
-void MainWindow::on_dayInsertButton_clicked()
-{
-    dayMod->insertDayTable();
-}
-
