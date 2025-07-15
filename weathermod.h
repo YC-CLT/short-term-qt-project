@@ -48,6 +48,7 @@
 class WeatherMod : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit WeatherMod(QWidget *parent = nullptr);
     bool unzipData(QByteArray &compressedData, QByteArray &uncompressedData);
@@ -57,8 +58,10 @@ public:
     void parseWeatherData2(const QByteArray &data);
     void getlocationData();
     bool parselocationData(const QByteArray &data);
+    bool isNetworkAvailable();
     QString location;//城市名字
     ~WeatherMod();
+// 在signals部分添加
 signals:
     void weather1DataUpdated(const QString &temp,
                             const QString &feelsLike,
@@ -112,15 +115,15 @@ private:
     QList<QString> windDir2;//风向
     QList<QString> windScale2;//风力
     QList<QString> humidity2;//湿度
-
-
     
     //变量
 
     QNetworkAccessManager *manager;
     QUrlQuery query;
+    bool networkAvailable;
+    
     //组件
 private slots:
     void handleReply(QNetworkReply *reply);
 };
-#endif // MAINWINDOW_H
+#endif // WEATHERMOD_H

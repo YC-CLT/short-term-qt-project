@@ -21,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent)
         [this](QAbstractButton* button) {
             ui->stackedWidget->setCurrentIndex(buttonGroup->id(button));
         });
+    //加载诗词
+    sayingMod = new Saying(this, ui);
 
     // 添加默认选中首页
     buttonGroup->button(0)->setChecked(true);  // 设置首页按钮为选中状态
@@ -34,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->todayWeatherLabel->setText("今日"+location+"天气：");
         ui->locationLabel->setText(location);
     });
+
     // 初始化重要日模块
     dayMod = new DayMod(this, ui);  
 

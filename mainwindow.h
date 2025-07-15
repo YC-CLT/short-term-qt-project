@@ -6,6 +6,7 @@
 #include "memmod.h"
 #include "settingmod.h"
 #include "temperaturechart.h"
+#include "saying.h"
 
 #include <QMainWindow>
 #include <QStackedWidget>
@@ -76,6 +77,7 @@ private:
     DayMod *dayMod;
     MemMod *memMod;
     SettingMod *settingMod;
+    Saying *sayingMod;
 };
 
 #endif // MAINWINDOW_H
