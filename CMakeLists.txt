@@ -9,8 +9,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(ZLIB_INCLUDE_DIR "D:/code/msys/ucrt64/include/")
-set(ZLIB_LIBRARY "D:/code/msys/ucrt64/lib/libz.a")
+#set(ZLIB_INCLUDE_DIR "D:/code/msys/ucrt64/include/")
+#set(ZLIB_LIBRARY "D:/code/msys/ucrt64/lib/libz.a")
 
 find_package(ZLIB REQUIRED)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools Network Sql Svg Charts)

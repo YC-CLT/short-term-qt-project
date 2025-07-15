@@ -50,7 +50,7 @@ void Saying::typeNextChar()
         ui->sayingLabel->setText(displayText);
         m_showCursor = false;
         // 3秒后开始回退
-        QTimer::singleShot(3000, this, [this]() {
+        QTimer::singleShot(4000, this, [this]() {
             m_isBackspacing = true;
         QTimer::singleShot(0, this, &Saying::backspaceText);
         });

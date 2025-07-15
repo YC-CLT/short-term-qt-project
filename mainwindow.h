@@ -69,9 +69,11 @@ private slots:
                             const QList<QString> &windScale2,
                             const QList<QString> &humidity2);
     void on_updateWeatherButton_clicked();
+    void updateTime();
     
 private:
     Ui::MainWindow *ui;
+    QTimer *timer;
     QButtonGroup *buttonGroup;
     WeatherMod *weatherMod;
     DayMod *dayMod;

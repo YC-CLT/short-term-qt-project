@@ -24,6 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
     //加载诗词
     sayingMod = new Saying(this, ui);
 
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &MainWindow::updateTime);
+    timer->start(1000); // 每秒更新
+
     // 添加默认选中首页
     buttonGroup->button(0)->setChecked(true);  // 设置首页按钮为选中状态
     ui->stackedWidget->setCurrentIndex(0);      // 显示第一个页面（首页）
@@ -90,6 +94,20 @@ void MainWindow::updateWeatherInfo(const QString &temp,
     ui->currentTempLabel->setText(temp+"℃");
     ui->feelsLikeLabel->setText("体感温度："+feelsLike+"℃");
     ui->weatherTextLabel->setText(weathertext);
+    
+    // 新增天气提示逻辑
+    int code = weathercode.toInt();
+    QString tip = "今日天气适宜外出";
+    if(code >= 300 && code <= 399) { // 降水类天气代码（雨）
+        tip = "记得携带雨伞☔";
+    } else if(code >= 400 && code <= 499) { // 降雪类天气
+        tip = "注意道路结冰❄️";
+    } else if(code >= 500 && code <= 515) { // 雾霾
+        tip = "建议佩戴口罩😷";
+    } else if(code >= 200 && code <= 202) { // 大风
+        tip = "注意防风🌪️";
+    }
+    ui->tipLabel->setText(tip); // 需要确保UI中有tipLabel控件
     ui->windLabel->setText(windDir + windScale+"级");
     ui->humidityLabel->setText("湿度"+humidity+"%");
     ui->updateTimeLabel->setText("更新时间："+QDateTime::fromString(updateTime, Qt::ISODate).toString("yyyy-MM-dd HH:mm"));
@@ -246,4 +264,10 @@ void MainWindow::on_updateWeatherButton_clicked()
         weatherMod->location = searchLocation;
         weatherMod->getlocationData();
     }
+}
+
+void MainWindow::updateTime()
+{
+    QString currentTime = QDateTime::currentDateTime().toString("yyyy年MM月dd日 hh:mm:ss");
+    ui->timeLabel->setText(currentTime);
 }

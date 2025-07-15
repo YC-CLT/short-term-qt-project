@@ -303,7 +303,7 @@ void BoolDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, 
 void DayMod::updateFirstEventMessage()
 {
     if(!model || model->rowCount() == 0) {
-        ui->dayMessageLabel->setText("暂无事件");
+        ui->dayMessageLabel->setText("暂无待办事项");
         return;
     }
 
@@ -337,4 +337,5 @@ void DayMod::updateFirstEventMessage()
     }
     
     ui->dayMessageLabel->setText(message);
+    ui->dayHomeLabel->setText(message);
 }

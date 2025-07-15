@@ -110,15 +110,15 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>120</x>
         <y>170</y>
-        <width>451</width>
-        <height>51</height>
+        <width>461</width>
+        <height>71</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>24</pointsize>
+        <pointsize>32</pointsize>
        </font>
       </property>
       <property name="text">
@@ -274,8 +274,8 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>230</y>
-        <width>681</width>
+        <y>250</y>
+        <width>691</width>
         <height>31</height>
        </rect>
       </property>
@@ -286,6 +286,80 @@
       </property>
       <property name="text">
        <string>您好，欢迎使用本软件</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dayHomeLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>370</y>
+        <width>681</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>暂无待办事项</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="tipLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>430</y>
+        <width>681</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#tipLabel {
+    color: #ff9900;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 8px;
+    border: 1px solid #ff9900;
+}</string>
+      </property>
+      <property name="text">
+       <string>暂无提醒</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="timeLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>280</y>
+        <width>691</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>时间</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -3095,11 +3169,15 @@
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QLabel" name="label_7">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
+           <kerning>true</kerning>
           </font>
          </property>
          <property name="text">
@@ -3109,6 +3187,12 @@
        </item>
        <item>
         <widget class="QComboBox" name="picComboBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="font">
           <font>
            <pointsize>9</pointsize>
@@ -3117,6 +3201,71 @@
          <property name="editable">
           <bool>false</bool>
          </property>
+         <item>
+          <property name="text">
+           <string>无背景</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>魈</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>可莉</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>大黑塔</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>博丽灵梦</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>坤坤</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>龙</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>地球</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>联合</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>领袖</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>晨日</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>本地浏览</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>从互联网获取</string>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>
@@ -3126,13 +3275,28 @@
        <rect>
         <x>20</x>
         <y>80</y>
-        <width>170</width>
+        <width>171</width>
         <height>38</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QLabel" name="label_6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -3145,6 +3309,12 @@
        </item>
        <item>
         <widget class="QComboBox" name="langComboBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="font">
           <font>
            <pointsize>9</pointsize>
@@ -3165,6 +3335,32 @@
            <string>日本語</string>
           </property>
          </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>320</y>
+        <width>141</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="checkMemDataButton">
+         <property name="text">
+          <string>查看备忘录日志</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="checkDayDataButton">
+         <property name="text">
+          <string>查看重要日日志</string>
+         </property>
         </widget>
        </item>
       </layout>
