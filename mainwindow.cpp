@@ -6,6 +6,16 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    static bool isDarkMode = true;
+    // 添加灯泡按钮连接
+    connect(ui->bulbButton, &QPushButton::clicked, this, [this]() {
+        isDarkMode = !isDarkMode;
+        loadStyleSheet(isDarkMode ? ":/style/styles.qss" : ":/style/light_styles.qss");
+        emit themeChanged(isDarkMode);
+    });
+    this->setWindowTitle("未渊玄枢");
+    this->setWindowIcon(QIcon(":/resources/icons/main.png"));
+    this->setMinimumSize(1280,720);
     this->resize(1280,720);
 
     // 加载QSS样式表
@@ -25,6 +35,11 @@ MainWindow::MainWindow(QWidget *parent)
         [this](QAbstractButton* button) {
             ui->stackedWidget->setCurrentIndex(buttonGroup->id(button));
         });
+    connect(ui->blankButton, &QPushButton::clicked, this, [this]() {
+        bool isVisible = ui->stackedWidget->isVisible();
+        ui->stackedWidget->setVisible(!isVisible);
+        ui->AIWidget->setVisible(!isVisible);
+    });
     //加载诗词
     sayingMod = new Saying(this, ui);
     //加载设置
@@ -46,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->todayWeatherLabel->setText("今日"+location+"天气：");
         ui->locationLabel->setText(location);
     });
-
+    
     // 初始化重要日模块
     dayMod = new DayMod(this, ui);  
 
@@ -84,6 +99,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->memInsertButton, &QPushButton::clicked, this, [this]() {
         memMod->insertMemTable();
     });
+
+    // 初始化AI智能体
+    aiAgent = new AIAgent(this, ui);
+    
 }
 
 void MainWindow::updateWeatherInfo(const QString &temp,

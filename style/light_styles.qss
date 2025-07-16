@@ -1,10 +1,10 @@
 /* ===== 主窗口 & 全局样式 ===== */
 QMainWindow {
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #2c3e50, stop:1 #34495e);
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #f5f7fa, stop:1 #e4e8f0);
 }
 
 * {
-    color: #ecf0f1;
+    color: #2c3e50;
     font-family: "Microsoft YaHei";
 }
 
@@ -14,16 +14,17 @@ QPushButton {
     min-height: 20px;
     padding: 5px 10px;
     border-radius: 8px;
-    background: #2980b9;
-    border: 1px solid rgba(255,255,255,0.15);
+    background: #3498db;
+    border: 1px solid rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     font: 500 12px;
+    color: white;
 }
 
 QPushButton:hover {
-    background: #3498db;
+    background: #2980b9;
     transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 QPushButton:pressed {
@@ -35,27 +36,28 @@ QPushButton:pressed {
 #checkDayLogButton, 
 #checkMemLogButton,
 #updateWeatherButton {
-    background: #27ae60;
-    border-color: rgba(255,255,255,0.2);
+    background: #2ecc71;
+    border-color: rgba(0,0,0,0.1);
     border-radius: 8px;
     font-size: 12px;
     padding: 6px 12px;
     min-width: 70px;
     min-height: 20px;
+    color: white;
 }
 
 /* ===== 数据表格样式 ===== */
 QTableView {
-    background: rgba(0, 0, 0, 0.25);
-    alternate-background-color: rgba(255,255,255,0.05);
-    gridline-color: rgba(255,255,255,0.1);
-    color: #ecf0f1;
+    background: rgba(255, 255, 255, 0.8);
+    alternate-background-color: rgba(0,0,0,0.05);
+    gridline-color: rgba(0,0,0,0.1);
+    color: #2c3e50;
     border-radius: 6px;
     font-size: 14px;
 }
 
 QHeaderView::section {
-    background-color: #2980b9;
+    background-color: #3498db;
     color: white;
     padding: 8px;
     border: none;
@@ -65,17 +67,17 @@ QHeaderView::section {
 QLineEdit, 
 QTextEdit,
 QComboBox {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0,0,0,0.15);
     border-radius: 4px;
     padding: 6px;
     min-height: 28px;
+    color: #2c3e50;
 }
 
 QComboBox QAbstractItemView {
-    background: rgba(40, 40, 40, 0.95);
-    border: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0,0,0,0.15);
 }
 
 /* ===== 侧边栏导航 ===== */
@@ -86,31 +88,32 @@ QComboBox QAbstractItemView {
     border-radius: 10px;
     font-size: 16px;
     margin: 2px;
-    background: rgba(41, 128, 185, 0.7);
-    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(52, 152, 219, 0.8);
+    border: 1px solid rgba(0,0,0,0.1);
     transition: all 0.2s ease;
+    color: white;
 }
 
 #sideBar QPushButton:hover {
-    background: rgba(52, 152, 219, 0.8);
+    background: rgba(41, 128, 185, 0.9);
 }
 
 #sideBar QPushButton:pressed {
-    background: rgba(33, 97, 140, 0.8);
+    background: rgba(33, 97, 140, 0.9);
 }
 
 #sideBar QPushButton:checked {
-    background: rgba(231, 76, 60, 0.8);
+    background: rgba(231, 76, 60, 0.9);
     font-weight: bold;
+    color: white;
 }
 
 /* ===== 堆叠容器 ===== */
 QStackedWidget {
-    background: rgba(10, 11, 12, 0.36);
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 8px;
     margin: 10px;
-    backdrop-filter: blur(8px);
-    
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 QStackedWidget > QWidget {
@@ -119,50 +122,49 @@ QStackedWidget > QWidget {
 
 /* ===== 天气模块 ===== */
 QLabel#weatherIconLabel {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0,0,0,0.1);
     padding: 8px;
     /* 新增样式 */
     min-width: 60px;
     min-height: 60px;
     qproperty-alignment: AlignCenter;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
 }
 
 QLabel#weatherIconLabel:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 /* ===== 时间显示 ===== */
 QLabel#timeLabel {
     font: bold 22pt;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    color: #2c3e50;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
 }
 
 /* ===== 设置页面 ===== */
 #pageSeeting QLabel {
     font-size: 14pt;
-    color: #bdc3c7;
+    color: #34495e;
 }
 
 #picComboBox {
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.8);
 }
 
-/* ===== 深色模式提示框样式 ===== */
+/* ===== 提示框样式 ===== */
 QMessageBox {
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #2c3e50, stop:1 #1a252f);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #f5f7fa, stop:1 #e4e8f0);
+    border: 1px solid rgba(0,0,0,0.1);
     border-radius: 8px;
 }
-
+/
 QMessageBox QLabel {
-    color: #ecf0f1;
+    color: #2c3e50;
     font-size: 14px;
 }
 
@@ -172,7 +174,7 @@ QMessageBox QPushButton {
     background: #3498db;
     color: white;
     border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 QMessageBox QPushButton:hover {
@@ -186,47 +188,47 @@ QMessageBox QPushButton:pressed {
 /* ===== 诗句显示 ===== */
 QLabel#sayingLabel {
     font: italic 16pt "Microsoft YaHei";
-    color: #ecf0f1;
+    color: #2c3e50;
     padding: 12px 20px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 12px;
-    border-left: 4px solid #3498db;
-    border-right: 4px solid #3498db;
+    border-left: 4px solid #2980b9;
+    border-right: 4px solid #2980b9;
     margin: 10px;
     text-align: center;
     transition: all 0.5s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 QLabel#sayingLabel:hover {
     transform: scale(1.02);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 /* ===== 待办事件主页显示 ===== */
 QLabel#dayHomeLabel {
     font: 14pt "Microsoft YaHei";
-    color: #ecf0f1;
-    background: rgba(52, 73, 94, 0.5);
+    color: #2c3e50;
+    background: rgba(236, 240, 241, 0.7);
     border-radius: 10px;
     padding: 12px;
     margin: 8px;
-    border-left: 5px solid #3498db;
-    border-right: 5px solid #3498db;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border-left: 5px solid #2980b9;
+    border-right: 5px solid #2980b9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     line-height: 1.5;
 }
 
 /* ===== 提示标签 ===== */
 QLabel#tipLabel {
     font: italic 13pt "Microsoft YaHei";
-    color: #f1c40f;
-    background: rgba(44, 62, 80, 0.7);
+    color: #e67e22;
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
     padding: 10px 15px;
     margin: 6px;
-    border: 1px dashed #f1c40f;
+    border: 1px dashed #e67e22;
     animation: pulse 2s infinite;
 }
 

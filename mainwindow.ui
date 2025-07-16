@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>942</width>
-    <height>650</height>
+    <width>1305</width>
+    <height>771</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -133,6 +133,25 @@
       <string>主页</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="blankButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>400</y>
+       <width>91</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="MinimumExpanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>组件开关</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
@@ -140,7 +159,7 @@
       <x>100</x>
       <y>0</y>
       <width>791</width>
-      <height>621</height>
+      <height>631</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -156,7 +175,7 @@
      </size>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="pageHome">
      <property name="sizePolicy">
@@ -187,7 +206,7 @@
           <widget class="QLabel" name="weatherTextLabel">
            <property name="geometry">
             <rect>
-             <x>530</x>
+             <x>560</x>
              <y>20</y>
              <width>111</width>
              <height>101</height>
@@ -205,7 +224,7 @@
           <widget class="QLabel" name="updateTimeLabel">
            <property name="geometry">
             <rect>
-             <x>490</x>
+             <x>440</x>
              <y>10</y>
              <width>181</width>
              <height>31</height>
@@ -280,10 +299,10 @@
           <widget class="QLabel" name="weatherIconLabel">
            <property name="geometry">
             <rect>
-             <x>650</x>
-             <y>20</y>
-             <width>111</width>
-             <height>101</height>
+             <x>630</x>
+             <y>0</y>
+             <width>131</width>
+             <height>121</height>
             </rect>
            </property>
            <property name="font">
@@ -449,7 +468,7 @@
       <item>
        <layout class="QVBoxLayout" name="pageWeatherlLayout">
         <property name="spacing">
-         <number>0</number>
+         <number>2</number>
         </property>
         <item>
          <widget class="QWidget" name="pageSearchWidget" native="true">
@@ -3405,6 +3424,11 @@
                 </item>
                 <item>
                  <property name="text">
+                  <string>文言文(华夏)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
                   <string>English</string>
                  </property>
                 </item>
@@ -3520,7 +3544,7 @@
              <x>250</x>
              <y>250</y>
              <width>251</width>
-             <height>161</height>
+             <height>201</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -3540,9 +3564,16 @@
              <number>5</number>
             </property>
             <item>
+             <widget class="QPushButton" name="bulbButton">
+              <property name="text">
+               <string>开关灯</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="clearPicCacheButton">
               <property name="text">
-               <string>清处图片缓存</string>
+               <string>清除图片缓存</string>
               </property>
              </widget>
             </item>
@@ -3568,6 +3599,72 @@
       </item>
      </layout>
     </widget>
+   </widget>
+   <widget class="QWidget" name="AIWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>10</y>
+      <width>371</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="AIVerticalLayout">
+     <property name="leftMargin">
+      <number>10</number>
+     </property>
+     <property name="topMargin">
+      <number>10</number>
+     </property>
+     <property name="rightMargin">
+      <number>10</number>
+     </property>
+     <property name="bottomMargin">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>AI Agent</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextBrowser" name="AITextBrowser"/>
+     </item>
+     <item>
+      <widget class="QTextEdit" name="AITextEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>80</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="AISendButton">
+       <property name="text">
+        <string>发送</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>

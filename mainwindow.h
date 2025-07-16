@@ -8,12 +8,14 @@
 #include "saying.h"
 #include "settingmod.h"
 #include "uisetting.h"
+#include "aiagent.h"
 
 #include <QMainWindow>
 #include <QStackedWidget>
 #include <QDialog>
 #include <QMessageBox>
 #include <QbuttonGroup>
+#include <QPushButton>
 
 #include <QDate>
 #include <QTime>
@@ -73,6 +75,9 @@ private slots:
     void on_updateWeatherButton_clicked();
     void updateTime();
     
+signals:
+    void themeChanged(bool theme);
+
 private:
     Ui::MainWindow *ui;
     QTimer *timer;
@@ -83,6 +88,7 @@ private:
     Saying *sayingMod;
     SettingMod *settingMod;
     UiSetting *uiManager;
+    AIAgent *aiAgent;
     friend class UiSetting;
 };
 

@@ -555,10 +555,11 @@
         <file>resources/background/wallpaper50.png</file>
         <file>resources/background/wallpaper51.png</file>
         <file>resources/background/wallpaper52.png</file>
-        <file>resources/background/wallpaper53.jpg</file>
+        <file>resources/icons/main.png</file>
     </qresource>
     <!-- 添加样式表资源 -->
     <qresource prefix="/">
         <file>style/styles.qss</file>
+        <file>style/light_styles.qss</file>
     </qresource>
 </RCC>
