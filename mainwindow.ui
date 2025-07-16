@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="sideBar" native="true">
     <property name="geometry">
@@ -99,7 +102,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="pageHome">
      <property name="font">
@@ -151,8 +154,8 @@
        <rect>
         <x>550</x>
         <y>70</y>
-        <width>81</width>
-        <height>81</height>
+        <width>101</width>
+        <height>91</height>
        </rect>
       </property>
       <property name="font">
@@ -323,19 +326,11 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>-1</pointsize>
+        <pointsize>9</pointsize>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QLabel#tipLabel {
-    color: #ff9900;
-    font-size: 14px;
-    padding: 5px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin-top: 8px;
-    border: 1px solid #ff9900;
-}</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>暂无提醒</string>
@@ -3164,8 +3159,8 @@
        <rect>
         <x>20</x>
         <y>150</y>
-        <width>170</width>
-        <height>38</height>
+        <width>191</width>
+        <height>61</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -3208,52 +3203,32 @@
          </item>
          <item>
           <property name="text">
-           <string>魈</string>
+           <string>蔡徐坤</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>可莉</string>
+           <string>灵梦</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>大黑塔</string>
+           <string>原神系列</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>博丽灵梦</string>
+           <string>崩铁系列</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>坤坤</string>
+           <string>共和国风</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>龙</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>地球</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>联合</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>领袖</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>晨日</string>
+           <string>随机</string>
           </property>
          </item>
          <item>
@@ -3270,13 +3245,13 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="layoutWidget">
+     <widget class="QWidget" name="layoutWidgetppp">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>80</y>
-        <width>171</width>
-        <height>38</height>
+        <y>97</y>
+        <width>191</width>
+        <height>51</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -3339,27 +3314,34 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidgetgy">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>320</y>
-        <width>141</width>
-        <height>111</height>
+        <x>20</x>
+        <y>270</y>
+        <width>191</width>
+        <height>161</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QPushButton" name="checkMemDataButton">
+        <widget class="QPushButton" name="clearPicCacheButton">
          <property name="text">
-          <string>查看备忘录日志</string>
+          <string>清楚图片缓存</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="checkDayDataButton">
+        <widget class="QPushButton" name="checkDayLogButton">
          <property name="text">
           <string>查看重要日日志</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="checkMemLogButton">
+         <property name="text">
+          <string>查看备忘录日志</string>
          </property>
         </widget>
        </item>

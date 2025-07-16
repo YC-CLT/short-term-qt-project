@@ -25,7 +25,6 @@ MemMod::MemMod(QWidget* parent, Ui::MainWindow* mainUi):QWidget(parent), ui(main
     }
     
     if(!dbOpened) {
-        qDebug() << "未找到数据库文件";
         // 让用户选择数据库文件位置
         QString fileName = QFileDialog::getSaveFileName(this, 
             tr("选择或创建数据库文件"), 

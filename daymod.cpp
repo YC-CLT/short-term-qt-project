@@ -6,6 +6,7 @@ DayMod::DayMod(QWidget* parent, Ui::MainWindow* mainUi) : QWidget(parent), ui(ma
         QMessageBox::critical(this, "错误", "SQLite驱动未加载");
         return;
     }
+    
     dayDb = QSqlDatabase::addDatabase("QSQLITE", "daymod_connection"); 
     // 自动搜索路径列表
     QStringList dbPaths = { 
@@ -78,13 +79,26 @@ DayMod::DayMod(QWidget* parent, Ui::MainWindow* mainUi) : QWidget(parent), ui(ma
             "FOREIGN KEY(event_id) REFERENCES important_days(id))",
             
             "CREATE TRIGGER log_insert AFTER INSERT ON important_days "
-            "BEGIN INSERT INTO operation_logs (event_id, change_type) VALUES (NEW.id, 'INSERT'); END",
+            "BEGIN "
+            "INSERT INTO operation_logs (event_id, change_type, change_details) "
+            "VALUES (NEW.id, 'INSERT', '新增事件: ' || NEW.event_name || ' 日期: ' || NEW.event_date); "
+            "END",
             
             "CREATE TRIGGER log_update AFTER UPDATE ON important_days "
-            "BEGIN INSERT INTO operation_logs (event_id, change_type) VALUES (NEW.id, 'UPDATE'); END",
+            "BEGIN "
+            "INSERT INTO operation_logs (event_id, change_type, change_details) "
+            "VALUES (NEW.id, 'UPDATE', "
+            "'事件修改: ' || "
+            "CASE WHEN OLD.event_name != NEW.event_name THEN '名称: ' || OLD.event_name || '→' || NEW.event_name || '; ' ELSE '' END || "
+            "CASE WHEN OLD.event_date != NEW.event_date THEN '日期: ' || OLD.event_date || '→' || NEW.event_date || '; ' ELSE '' END || "
+            "CASE WHEN OLD.remarks != NEW.remarks THEN '备注: ' || OLD.remarks || '→' || NEW.remarks ELSE '' END); "
+            "END",
             
             "CREATE TRIGGER log_delete AFTER DELETE ON important_days "
-            "BEGIN INSERT INTO operation_logs (event_id, change_type) VALUES (OLD.id, 'DELETE'); END",
+            "BEGIN "
+            "INSERT INTO operation_logs (event_id, change_type, change_details) "
+            "VALUES (OLD.id, 'DELETE', '删除事件: ' || OLD.event_name || ' 日期: ' || OLD.event_date); "
+            "END",
             
             "CREATE TRIGGER auto_clean_logs AFTER INSERT ON important_days WHEN strftime('%d', 'now') = '01' "
             "BEGIN DELETE FROM operation_logs WHERE julianday('now') - julianday(change_time) > 30; END"

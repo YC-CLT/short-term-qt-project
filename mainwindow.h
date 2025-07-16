@@ -4,9 +4,9 @@
 #include "weathermod.h"
 #include "daymod.h"
 #include "memmod.h"
-#include "settingmod.h"
 #include "temperaturechart.h"
 #include "saying.h"
+#include "settingmod.h"
 
 #include <QMainWindow>
 #include <QStackedWidget>
@@ -29,7 +29,6 @@
 #include <QSqlError>
 #include <QSqlRecord>
 
-
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -42,6 +41,7 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void loadStyleSheet(const QString &path);
     ~MainWindow();
 
 private slots:
@@ -78,8 +78,9 @@ private:
     WeatherMod *weatherMod;
     DayMod *dayMod;
     MemMod *memMod;
-    SettingMod *settingMod;
     Saying *sayingMod;
+    SettingMod *settingMod;
+    friend class SettingMod;
 };
 
 #endif // MAINWINDOW_H

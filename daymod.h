@@ -34,11 +34,11 @@ public:
     void deleteDayTable();
     void cancelDayTable();
     void insertDayTable();
-    void updateFirstEventMessage();  // 新增方法
+    void updateFirstEventMessage(); 
 private:
     Ui::MainWindow* ui;  // 添加UI指针成员
     QSqlTableModel* model;  // 模型指针
-    QSqlDatabase dayDb;  // 数据库连接
+    QSqlDatabase dayDb;  // 添加数据库成员变量声明
 
 };
 

@@ -7,6 +7,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    this->resize(900, 600);
+
+    // 加载QSS样式表
+    loadStyleSheet(":/style/styles.qss");
+    
     // 初始化按钮组
     buttonGroup = new QButtonGroup(this);
     buttonGroup->setExclusive(true);  // 确保单选模式
@@ -23,6 +28,8 @@ MainWindow::MainWindow(QWidget *parent)
         });
     //加载诗词
     sayingMod = new Saying(this, ui);
+    //加载设置
+    settingMod = new SettingMod(this, ui);
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::updateTime);
@@ -94,21 +101,59 @@ void MainWindow::updateWeatherInfo(const QString &temp,
     ui->currentTempLabel->setText(temp+"℃");
     ui->feelsLikeLabel->setText("体感温度："+feelsLike+"℃");
     ui->weatherTextLabel->setText(weathertext);
-    
-    // 新增天气提示逻辑
-    int code = weathercode.toInt();
-    QString tip = "今日天气适宜外出";
-    if(code >= 300 && code <= 399) { // 降水类天气代码（雨）
-        tip = "记得携带雨伞☔";
-    } else if(code >= 400 && code <= 499) { // 降雪类天气
-        tip = "注意道路结冰❄️";
-    } else if(code >= 500 && code <= 515) { // 雾霾
-        tip = "建议佩戴口罩😷";
-    } else if(code >= 200 && code <= 202) { // 大风
-        tip = "注意防风🌪️";
-    }
-    ui->tipLabel->setText(tip); // 需要确保UI中有tipLabel控件
     ui->windLabel->setText(windDir + windScale+"级");
+    // 优化后的天气提示逻辑
+    int code = weathercode.toInt();
+    int temperature = temp.toInt();
+    int windLevel = windScale.toInt();
+    QString tip;
+    
+    // 根据天气类型设置基础提示
+    if(code >= 20 && code <= 22) { // 大风天气
+        tip = QString("大风天气🌪️\n%1")
+              .arg(windLevel >= 6 ? "避免高空作业" : 
+                  (windLevel >= 4 ? "注意固定户外物品" : ""));
+    } 
+    else {
+        switch(code) {
+            case 100 ... 104: // 晴天
+            case 150 ... 153:
+                tip = "晴空万里☀️";
+                break;
+                
+            case 300 ... 304: // 雷雨
+                tip = "可能有雷电，注意安全⚡";
+                break;
+                
+            case 305 ... 399: // 降雨
+                tip = "记得携带雨伞☔";
+                break;
+                
+            case 400 ... 499: // 降雪
+                tip = (code == 404 || code == 405) ? 
+                      "小心道路湿滑🌧️" : "注意防寒保暖🧣";
+                break;
+                
+            case 500 ... 515: // 雾霾沙尘
+                tip = (code >= 507 && code <= 508) ? 
+                      "沙尘天气请防护🌪️" : "建议佩戴口罩😷";
+                break;
+                
+            case 900: tip = "高温注意防暑🔥"; break;
+            case 901: tip = "寒冷注意保暖❄️"; break;
+            default:  tip = "今日天气适宜";
+        }
+    }
+    
+    // 温度附加提示（与天气类型提示互补）
+    if(temperature >= 30 && !tip.contains("高温")) {
+        tip += " 高温注意防晒";
+    } 
+    else if(temperature <= 5 && !tip.contains("寒冷")) {
+        tip += " 低温注意保暖";
+    }
+    
+    ui->tipLabel->setText(tip.trimmed());
     ui->humidityLabel->setText("湿度"+humidity+"%");
     ui->updateTimeLabel->setText("更新时间："+QDateTime::fromString(updateTime, Qt::ISODate).toString("yyyy-MM-dd HH:mm"));
     
@@ -270,4 +315,16 @@ void MainWindow::updateTime()
 {
     QString currentTime = QDateTime::currentDateTime().toString("yyyy年MM月dd日 hh:mm:ss");
     ui->timeLabel->setText(currentTime);
+}
+
+void MainWindow::loadStyleSheet(const QString &path) 
+{
+    QFile file(path);
+    if(file.open(QIODevice::ReadOnly)) {
+        QString styleSheet = QLatin1String(file.readAll());
+        qApp->setStyleSheet(styleSheet);
+        file.close();
+    } else {
+        QMessageBox::warning(this, "Warning", "Failed to load stylesheet:" + file.errorString());
+    }
 }

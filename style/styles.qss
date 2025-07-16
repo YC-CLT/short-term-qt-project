@@ -1,0 +1,42 @@
+/* 主窗口背景 */
+QMainWindow {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 #2c3e50, stop:1 #3498db);
+}
+
+/* 按钮基础样式 */
+QPushButton {
+    min-width: 80px;
+    padding: 8px;
+    border-radius: 4px;
+    background: #2980b9;
+    color: white;
+}
+
+/* 特殊按钮 */
+#checkDayLogButton, #checkMemLogButton {
+    background: #27ae60;
+}
+
+/* 下拉框 */
+QComboBox {
+    padding: 5px;
+    border: 1px solid #bdc3c7;
+    border-radius: 3px;
+}
+
+/* 天气标签 */
+QLabel#weatherIconLabel {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+/*天气提醒标签*/
+QLabel#tipLabel {
+    color: #ff9900;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 8px;
+    border: 1px solid #ff9900;
+}
+}

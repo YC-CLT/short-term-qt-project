@@ -1,5 +1,6 @@
 <RCC>
-    <qresource lang="zh-CN" prefix="/">
+    <!--这部分是天气-->
+    <qresource prefix="/">
         <file>resources/icons/100.svg</file>
         <file>resources/icons/100-fill.svg</file>
         <file>resources/icons/101.svg</file>
@@ -499,5 +500,65 @@
         <file>resources/icons/9999.svg</file>
         <file>resources/icons/qweather.svg</file>
         <file>resources/icons/qweather-fill.svg</file>
+    </qresource>
+    <!--这部分是背景-->
+    <qresource prefix="/">
+        <file>resources/background/wallpaper1.png</file>
+        <file>resources/background/wallpaper2.jpg</file>
+        <file>resources/background/wallpaper3.jpg</file>
+        <file>resources/background/wallpaper4.jpg</file>
+        <file>resources/background/wallpaper5.jpg</file>
+        <file>resources/background/wallpaper6.png</file>
+        <file>resources/background/wallpaper7.jpg</file>
+        <file>resources/background/wallpaper8.png</file>
+        <file>resources/background/wallpaper9.jpg</file>
+        <file>resources/background/wallpaper10.jpeg</file>
+        <file>resources/background/wallpaper11.jpg</file>
+        <file>resources/background/wallpaper12.jpeg</file>
+        <file>resources/background/wallpaper13.jpg</file>
+        <file>resources/background/wallpaper14.png</file>
+        <file>resources/background/wallpaper15.png</file>
+        <file>resources/background/wallpaper16.png</file>
+        <file>resources/background/wallpaper17.jpg</file>
+        <file>resources/background/wallpaper18.jpg</file>
+        <file>resources/background/wallpaper19.jpg</file>
+        <file>resources/background/wallpaper20.png</file>
+        <file>resources/background/wallpaper21.jpg</file>
+        <file>resources/background/wallpaper22.png</file>
+        <file>resources/background/wallpaper23.png</file>
+        <file>resources/background/wallpaper24.jpg</file>
+        <file>resources/background/wallpaper25.png</file>
+        <file>resources/background/wallpaper26.jpeg</file>
+        <file>resources/background/wallpaper27.jpeg</file>
+        <file>resources/background/wallpaper28.jpeg</file>
+        <file>resources/background/wallpaper29.jpg</file>
+        <file>resources/background/wallpaper30.png</file>
+        <file>resources/background/wallpaper31.png</file>
+        <file>resources/background/wallpaper32.jpg</file>
+        <file>resources/background/wallpaper33.png</file>
+        <file>resources/background/wallpaper34.png</file>
+        <file>resources/background/wallpaper35.png</file>
+        <file>resources/background/wallpaper36.png</file>
+        <file>resources/background/wallpaper37.jpg</file>
+        <file>resources/background/wallpaper38.png</file>
+        <file>resources/background/wallpaper39.jpg</file>
+        <file>resources/background/wallpaper40.jpg</file>
+        <file>resources/background/wallpaper41.jpg</file>
+        <file>resources/background/wallpaper42.png</file>
+        <file>resources/background/wallpaper43.png</file>
+        <file>resources/background/wallpaper44.png</file>
+        <file>resources/background/wallpaper45.jpg</file>
+        <file>resources/background/wallpaper46.jpg</file>
+        <file>resources/background/wallpaper47.png</file>
+        <file>resources/background/wallpaper48.png</file>
+        <file>resources/background/wallpaper49.jpg</file>
+        <file>resources/background/wallpaper50.png</file>
+        <file>resources/background/wallpaper51.png</file>
+        <file>resources/background/wallpaper52.png</file>
+        <file>resources/background/wallpaper53.jpg</file>
+    </qresource>
+    <!-- 添加样式表资源 -->
+    <qresource prefix="/">
+        <file>style/styles.qss</file>
     </qresource>
 </RCC>

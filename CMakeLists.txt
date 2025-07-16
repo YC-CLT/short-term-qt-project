@@ -9,8 +9,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-#set(ZLIB_INCLUDE_DIR "D:/code/msys/ucrt64/include/")
-#set(ZLIB_LIBRARY "D:/code/msys/ucrt64/lib/libz.a")
+set(ZLIB_INCLUDE_DIR "D:/code/msys/ucrt64/include/")#你应该改成你的zlib目录，如D:/code/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/
+set(ZLIB_LIBRARY "D:/code/msys/ucrt64/lib/libz.a")#你应该改成你的zlib目录，如D:/code/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/lib/libz.a
 
 find_package(ZLIB REQUIRED)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools Network Sql Svg Charts)
@@ -36,7 +36,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         daymod.h daymod.cpp
         weathermod.h weathermod.cpp
         settingmod.h settingmod.cpp
-        resources.qrc
+        resources.qrc  
         temperaturechart.h temperaturechart.cpp
         saying.h saying.cpp
     )

@@ -23,9 +23,6 @@
 #include <QDir>
 #include <QFileDialog>
 
-
-
-
 class MemMod : public QWidget
 {
     Q_OBJECT
@@ -41,6 +38,7 @@ public:
     void deleteMemTable();
     void cancelMemTable();
     void insertMemTable();
+
 private:
     QSqlDatabase memDb;
     QSqlTableModel *model;
