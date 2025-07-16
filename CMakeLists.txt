@@ -16,7 +16,22 @@ find_package(ZLIB REQUIRED)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools Network Sql Svg Charts)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools Network Sql Svg Charts)
 
+set(SOURCES_TO_TRANSLATE
+    memmod.h memmod.cpp
+    daymod.h daymod.cpp
+    weathermod.h weathermod.cpp
+    settingmod.h settingmod.cpp
+    resources.qrc
+    temperaturechart.h temperaturechart.cpp
+    saying.h saying.cpp
+    uisetting.h uisetting.cpp
+)
 set(TS_FILES short-term-qt-project_zh_CN.ts)
+
+qt6_create_translation(QM_FILES
+    ${SOURCES_TO_TRANSLATE}
+    ${TS_FILES}
+)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -29,6 +44,7 @@ set(PROJECT_SOURCES
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     find_package(Qt6 REQUIRED COMPONENTS Widgets)
     find_package(Qt6 REQUIRED COMPONENTS Widgets)
+    find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
     qt_add_executable(short-term-qt-project
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
@@ -39,6 +55,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         resources.qrc  
         temperaturechart.h temperaturechart.cpp
         saying.h saying.cpp
+        uisetting.h uisetting.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET short-term-qt-project APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -64,6 +81,7 @@ endif()
 
 target_link_libraries(short-term-qt-project PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::Sql ZLIB::ZLIB Qt${QT_VERSION_MAJOR}::Svg Qt${QT_VERSION_MAJOR}::Charts)
 target_link_libraries(short-term-qt-project PRIVATE Qt6::Widgets)
+target_link_libraries(short-term-qt-project PRIVATE Qt6::Core Qt6::Widgets)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

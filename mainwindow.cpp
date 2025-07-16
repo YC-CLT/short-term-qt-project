@@ -2,16 +2,15 @@
 #include "./ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    this->resize(900, 600);
+    this->resize(1280,720);
 
     // 加载QSS样式表
     loadStyleSheet(":/style/styles.qss");
-    
+
     // 初始化按钮组
     buttonGroup = new QButtonGroup(this);
     buttonGroup->setExclusive(true);  // 确保单选模式
@@ -85,7 +84,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->memInsertButton, &QPushButton::clicked, this, [this]() {
         memMod->insertMemTable();
     });
-
 }
 
 void MainWindow::updateWeatherInfo(const QString &temp,
@@ -158,6 +156,7 @@ void MainWindow::updateWeatherInfo(const QString &temp,
     ui->updateTimeLabel->setText("更新时间："+QDateTime::fromString(updateTime, Qt::ISODate).toString("yyyy-MM-dd HH:mm"));
     
     // 加载SVG图片并适应标签大小
+    // 在updateWeatherInfo函数中修改：
     QSvgRenderer renderer(QString(":/resources/icons/%1.svg").arg(weathercode));
     if(renderer.isValid()) {
         QPixmap pixmap(ui->weatherIconLabel->size() * devicePixelRatio());
@@ -165,7 +164,15 @@ void MainWindow::updateWeatherInfo(const QString &temp,
         pixmap.fill(Qt::transparent);
         
         QPainter painter(&pixmap);
+        painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+        painter.setBrush(Qt::white);
+        painter.setPen(Qt::NoPen);
+        
+        // 先绘制白色背景
+        painter.drawRect(pixmap.rect());
+        // 再渲染SVG图标
         renderer.render(&painter);
+        
         ui->weatherIconLabel->setPixmap(pixmap);
     }
     else {
@@ -222,6 +229,13 @@ void MainWindow::updateWeather2Info(const QString &updateTime2,
                 pixmap.fill(Qt::transparent);
                 
                 QPainter painter(&pixmap);
+                painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+                painter.setBrush(Qt::white);
+                painter.setPen(Qt::NoPen);
+                
+                // 先填充白色
+                painter.drawRect(pixmap.rect());
+                // 再绘制图标
                 renderer.render(&painter);
                 moonLabel->setPixmap(pixmap);
             }
@@ -242,6 +256,13 @@ void MainWindow::updateWeather2Info(const QString &updateTime2,
                 pixmap.fill(Qt::transparent);
                 
                 QPainter painter(&pixmap);
+                painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+                painter.setBrush(Qt::white);
+                painter.setPen(Qt::NoPen);
+                
+                // 先填充白色
+                painter.drawRect(pixmap.rect());
+                // 再绘制图标
                 renderer.render(&painter);
                 iconLabel->setPixmap(pixmap);
             }
@@ -325,6 +346,6 @@ void MainWindow::loadStyleSheet(const QString &path)
         qApp->setStyleSheet(styleSheet);
         file.close();
     } else {
-        QMessageBox::warning(this, "Warning", "Failed to load stylesheet:" + file.errorString());
+        QMessageBox::warning(this, "Warning", "样式表加载失败" + file.errorString());
     }
 }

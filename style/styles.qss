@@ -1,42 +1,144 @@
-/* 主窗口背景 */
+/* ===== 主窗口 & 全局样式 ===== */
 QMainWindow {
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-        stop:0 #2c3e50, stop:1 #3498db);
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #2c3e50, stop:1 #34495e);
 }
 
-/* 按钮基础样式 */
+* {
+    color: #ecf0f1;
+    font-family: "Microsoft YaHei";
+}
+
+/* ===== 通用按钮样式 ===== */
 QPushButton {
-    min-width: 80px;
-    padding: 8px;
-    border-radius: 4px;
+    min-width: 70px;
+    min-height: 20px;
+    padding: 5px 10px;
+    border-radius: 8px;
     background: #2980b9;
-    color: white;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: all 0.3s ease;
+    font: 500 11px;
 }
 
-/* 特殊按钮 */
-#checkDayLogButton, #checkMemLogButton {
+QPushButton:hover {
+    background: #3498db;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+QPushButton:pressed {
+    background: #2471a3;
+    transform: translateY(0);
+}
+
+/* ===== 特殊功能按钮 ===== */
+#checkDayLogButton, 
+#checkMemLogButton,
+#updateWeatherButton {
     background: #27ae60;
+    border-color: rgba(255,255,255,0.2);
+    border-radius: 8px;
+    font-size: 11px;
+    padding: 6px 12px;
+    min-width: 70px;
+    min-height: 20px;
 }
 
-/* 下拉框 */
+/* ===== 数据表格样式 ===== */
+QTableView {
+    background: rgba(0, 0, 0, 0.25);
+    alternate-background-color: rgba(255,255,255,0.05);
+    gridline-color: rgba(255,255,255,0.1);
+    color: #ecf0f1;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+QHeaderView::section {
+    background-color: #2980b9;
+    color: white;
+    padding: 8px;
+    border: none;
+}
+
+/* ===== 输入控件组 ===== */
+QLineEdit, 
+QTextEdit,
 QComboBox {
-    padding: 5px;
-    border: 1px solid #bdc3c7;
-    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 6px;
+    min-height: 28px;
 }
 
-/* 天气标签 */
-QLabel#weatherIconLabel {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-/*天气提醒标签*/
-QLabel#tipLabel {
-    color: #ff9900;
-    font-size: 14px;
-    padding: 5px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin-top: 8px;
-    border: 1px solid #ff9900;
+QComboBox QAbstractItemView {
+    background: rgba(40, 40, 40, 0.95);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
 }
+
+/* ===== 侧边栏导航 ===== */
+#sideBar QPushButton {
+    min-width: 40px;
+    min-height: 25px;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin: 2px;
+    background: rgba(41, 128, 185, 0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: all 0.2s ease;
+}
+
+#sideBar QPushButton:hover {
+    background: rgba(52, 152, 219, 0.8);
+}
+
+#sideBar QPushButton:pressed {
+    background: rgba(33, 97, 140, 0.8);
+}
+
+#sideBar QPushButton:checked {
+    background: rgba(231, 76, 60, 0.8);
+    font-weight: bold;
+}
+
+/* ===== 堆叠容器 ===== */
+QStackedWidget {
+    background: rgba(10, 11, 12, 0.5);
+    border-radius: 8px;
+    margin: 10px;
+    backdrop-filter: blur(8px);
+    
+}
+
+QStackedWidget > QWidget {
+    padding: 10px;
+}
+
+/* ===== 天气模块 ===== */
+QLabel#weatherIconLabel {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    padding: 8px;
+}
+
+/* ===== 时间显示 ===== */
+QLabel#timeLabel {
+    font: bold 18pt;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* ===== 设置页面 ===== */
+#pageSeeting QLabel {
+    font-size: 13pt;
+    color: #bdc3c7;
+}
+
+#picComboBox {
+    background: rgba(0, 0, 0, 0.25);
 }

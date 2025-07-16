@@ -7,6 +7,7 @@
 #include "temperaturechart.h"
 #include "saying.h"
 #include "settingmod.h"
+#include "uisetting.h"
 
 #include <QMainWindow>
 #include <QStackedWidget>
@@ -21,6 +22,7 @@
 #include <QPixmap>
 #include <QThread>
 #include <QTimer>
+#include <QEvent>
 
 #include <QTableView>
 #include <QSqlTableModel>
@@ -80,7 +82,8 @@ private:
     MemMod *memMod;
     Saying *sayingMod;
     SettingMod *settingMod;
-    friend class SettingMod;
+    UiSetting *uiManager;
+    friend class UiSetting;
 };
 
 #endif // MAINWINDOW_H

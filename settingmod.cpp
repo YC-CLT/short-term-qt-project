@@ -32,72 +32,57 @@ void SettingMod::setBackground(int index)
         }
         case 2:{
             // 尝试加载不同格式的图片
+            int randomNum = QRandomGenerator::global()->bounded(2); // 生成0或1
             for (const auto& ext : extensions) {
-                int randomNum = QRandomGenerator::global()->bounded(2); // 生成0或1
                 bgPath = QString(":/resources/background/wallpaper%1%2").arg(randomNum + 49).arg(ext);
                 if (QFile::exists(bgPath)) {
-                    break;
+                    applyBackground(bgPath);
+                    return; // 找到图片后立即返回
                 }
-            }
-        
-            if (!bgPath.isEmpty() && QFile::exists(bgPath)) {
-                applyBackground(bgPath);
             }
             break;
         }
         case 3:{
+            int randomNum = QRandomGenerator::global()->bounded(19);
             for (const auto& ext : extensions) {
-                int randomNum = QRandomGenerator::global()->bounded(19);
                 bgPath = QString(":/resources/background/wallpaper%1%2").arg(randomNum + 4).arg(ext);
                 if (QFile::exists(bgPath)) {
-                    break;
+                    applyBackground(bgPath);
+                    return;
                 }
-            }
-        
-            if (!bgPath.isEmpty() && QFile::exists(bgPath)) {
-                applyBackground(bgPath);
             }
             break;
         }
         case 4:{
+            int randomNum = QRandomGenerator::global()->bounded(26);
             for (const auto& ext : extensions) {
-                int randomNum = QRandomGenerator::global()->bounded(26);
                 bgPath = QString(":/resources/background/wallpaper%1%2").arg(randomNum + 23).arg(ext);
                 if (QFile::exists(bgPath)) {
-                    break;
+                    applyBackground(bgPath);
+                    return;
                 }
-            }
-        
-            if (!bgPath.isEmpty() && QFile::exists(bgPath)) {
-                applyBackground(bgPath);
             }
             break;
         }
         case 5:{
+            int randomNum = QRandomGenerator::global()->bounded(3);
             for (const auto& ext : extensions) {
-                int randomNum = QRandomGenerator::global()->bounded(3);
                 bgPath = QString(":/resources/background/wallpaper%1%2").arg(randomNum + 1).arg(ext);
                 if (QFile::exists(bgPath)) {
-                    break;
+                    applyBackground(bgPath);
+                    return;
                 }
-            }
-        
-            if (!bgPath.isEmpty() && QFile::exists(bgPath)) {
-                applyBackground(bgPath);
             }
             break;
         }
         case 6:{
+            int randomNum = QRandomGenerator::global()->bounded(53);
             for (const auto& ext : extensions) {
-                int randomNum = QRandomGenerator::global()->bounded(53);
                 bgPath = QString(":/resources/background/wallpaper%1%2").arg(randomNum + 1).arg(ext);
                 if (QFile::exists(bgPath)) {
-                    break;
+                    applyBackground(bgPath);
+                    return;
                 }
-            }
-        
-            if (!bgPath.isEmpty() && QFile::exists(bgPath)) {
-                applyBackground(bgPath);
             }
             break;
         }
@@ -112,7 +97,21 @@ void SettingMod::setBackground(int index)
         case 8:{
             // 网络API获取图片
             QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-            connect(manager, &QNetworkAccessManager::finished, this, [this, manager](QNetworkReply *reply) {
+            
+            // 创建超时定时器
+            QTimer *timeoutTimer = new QTimer(this);
+            timeoutTimer->setSingleShot(true);
+            timeoutTimer->start(30000); // 30秒超时
+            
+            connect(timeoutTimer, &QTimer::timeout, [this, manager]() {
+                QMessageBox::warning(this, "错误", "网络请求超时");
+                manager->deleteLater();
+            });
+            
+            connect(manager, &QNetworkAccessManager::finished, this, [this, manager, timeoutTimer](QNetworkReply *reply) {
+                timeoutTimer->stop(); // 请求完成时停止计时器
+                timeoutTimer->deleteLater();
+                
                 if (reply->error() == QNetworkReply::NoError) {
                     QByteArray imageData = reply->readAll();
                     
@@ -136,7 +135,6 @@ void SettingMod::setBackground(int index)
                         applyBackground(cachePath);
                     }
                 } else {
-                    qDebug() << "网络请求失败:" << reply->errorString();
                     QMessageBox::warning(this, "错误", "无法获取网络图片");
                 }
                 
