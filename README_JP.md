@@ -6,9 +6,10 @@
     <a href="README_JP.md" alt="日本語" width="800">日本語(尚未完善)</a>
     <a href="README_EN.md" alt="English" width="800">English(尚未完善)</a>
 </div>
-
+<br/>
 <div align="center">
-    <img src="resources/icons/main.ico" alt="项目截图" width="800">
+    <img src="resources/icons/main.ico" alt="项目图标" width="100" title="プロジェクトアイコン"></img>
+     <p>プロジェクトアイコン</p>
 </div>
 
 ## 概要
