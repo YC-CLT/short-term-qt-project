@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
         emit themeChanged(isDarkMode);
     });
     this->setWindowTitle("未渊玄枢");
-    this->setWindowIcon(QIcon(":/resources/icons/main.png"));
+    this->setWindowIcon(QIcon(":/resources/icons/main.ico"));
     this->setMinimumSize(1280,720);
     this->resize(1280,720);
 

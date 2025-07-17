@@ -17,14 +17,11 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools Network 
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools Network Sql Svg Charts)
 
 set(SOURCES_TO_TRANSLATE
-    memmod.h memmod.cpp
-    daymod.h daymod.cpp
-    weathermod.h weathermod.cpp
-    settingmod.h settingmod.cpp
-    resources.qrc
-    temperaturechart.h temperaturechart.cpp
-    saying.h saying.cpp
-    uisetting.h uisetting.cpp
+        main.cpp
+        mainwindow.cpp
+        mainwindow.h
+        mainwindow.ui
+        ${TS_FILES}
 )
 set(TS_FILES short-term-qt-project_zh_CN.ts)
 
@@ -53,7 +50,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         daymod.h daymod.cpp
         weathermod.h weathermod.cpp
         settingmod.h settingmod.cpp
-        resources.qrc  
+        resources.qrc  appicon.rc
         temperaturechart.h temperaturechart.cpp
         saying.h saying.cpp
         uisetting.h uisetting.cpp
