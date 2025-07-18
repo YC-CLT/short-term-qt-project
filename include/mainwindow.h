@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "./ui_mainwindow.h"
+
 #include "weathermod.h"
 #include "daymod.h"
 #include "memmod.h"

@@ -3606,7 +3606,7 @@
       <x>900</x>
       <y>10</y>
       <width>371</width>
-      <height>601</height>
+      <height>621</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="AIVerticalLayout">
@@ -3623,7 +3623,7 @@
       <number>10</number>
      </property>
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="AIlabel">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -3658,11 +3658,22 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="AISendButton">
-       <property name="text">
-        <string>发送</string>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QPushButton" name="AIClearButton">
+         <property name="text">
+          <string>清除</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="AISendButton">
+         <property name="text">
+          <string>发送</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>

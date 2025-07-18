@@ -18,9 +18,9 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools Net
 
 set(SOURCES_TO_TRANSLATE
         main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+        src/mainwindow.cpp
+        include/mainwindow.h
+        include/mainwindow.ui  
         ${TS_FILES}
 )
 set(TS_FILES short-term-qt-project_zh_CN.ts)
@@ -32,34 +32,50 @@ qt6_create_translation(QM_FILES
 
 set(PROJECT_SOURCES
         main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+        src/mainwindow.cpp
+        include/mainwindow.h
+        include/mainwindow.ui
         ${TS_FILES}
+        src/memmod.cpp
+        include/memmod.h
+        src/daymod.cpp
+        include/daymod.h
+        src/weathermod.cpp
+        include/weathermod.h
+        src/settingmod.cpp
+        include/settingmod.h
+        resources.qrc
+        appicon.rc
+        src/temperaturechart.cpp
+        include/temperaturechart.h
+        src/saying.cpp
+        include/saying.h
+        src/uisetting.cpp
+        include/uisetting.h
+        src/aiagent.cpp
+        include/aiagent.h
 )
+
+# 添加根目录和生成目录到包含路径
+# 确保在创建可执行目标之后设置包含目录（移动到qt_add_executable之后）
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     find_package(Qt6 REQUIRED COMPONENTS Widgets)
-    find_package(Qt6 REQUIRED COMPONENTS Widgets)
     find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
-    find_package(Qt6 REQUIRED COMPONENTS Widgets)
     qt_add_executable(short-term-qt-project
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        memmod.h memmod.cpp
-        daymod.h daymod.cpp
-        weathermod.h weathermod.cpp
-        settingmod.h settingmod.cpp
-        resources.qrc  appicon.rc
-        temperaturechart.h temperaturechart.cpp
-        saying.h saying.cpp
-        uisetting.h uisetting.cpp
-        aiagent.h aiagent.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET short-term-qt-project APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
+
+    target_include_directories(short-term-qt-project PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_BINARY_DIR}
+        include
+    )
 
     qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 else()

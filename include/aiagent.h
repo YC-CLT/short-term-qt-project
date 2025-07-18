@@ -33,24 +33,31 @@ class AIAgent : public QWidget
     Q_OBJECT
 public:
     explicit AIAgent(QWidget *parent = nullptr, Ui::MainWindow* mainUi = nullptr);
-    void appendMessage(const QString &msg, bool isUser);
+    // 修改函数签名，添加流式参数
+    // 只在头文件声明中保留默认参数
+    void appendMessage(const QString &msg, bool isUser, bool isStreaming = true);
     void initMessageStyle();
-    void updateLastMessage(const QString &chunk);
+    void setSystemPrompt(const QString &prompt);  // 新增设置系统提示词的函数
 
 signals:
+    // 保持现有信号不变
     void messageReceived(const QString& message);
 
 public slots:
-    void setTheme(bool theme);//设置ai的主题(默认暗黑)
-    void sendMessage();  // 添加发送消息的槽函数
+    void clearChatHistory();  // 新增清除功能
+    void setTheme(bool theme);
+    void sendMessage();
 
 private:
-
+    // 已有成员变量保持不变
     Ui::MainWindow* ui;
     QNetworkAccessManager* manager;
     QNetworkReply* reply;
-    QJsonDocument jsonDoc;  // 保留JSON相关成员
-    QJsonObject jsonObj;
+    QString systemPrompt;  // 系统提示词
+    
+    // 新增的成员变量已正确定义
+    QList<QJsonObject> messageHistory;  
+    QString currentResponse;            
 };
 
 #endif // AIAGENT_H
