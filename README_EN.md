@@ -1,10 +1,10 @@
 # short-term-qt-project
 
 <div align="center">
-    <a href="README.md" alt="中文" width="800">中文(简体)</a>
-    <a href="README_LZH.md" alt="文言" width="800">文言(尚未完善)</a>
-    <a href="README_JP.md" alt="日本語" width="800">日本語(尚未完善)</a>
-    <a href="README_EN.md" alt="English" width="800">English(尚未完善)</a>
+    <a href="README.md" alt="中文" width="800">中文(简体) | </a>
+    <a href="README_LZH.md" alt="文言" width="800">文言(尚未完善) | </a>
+    <a href="README_JP.md" alt="日本語" width="800">日本語(尚未完善) | </a>
+    <a href="README_EN.md" alt="English" width="800">English(尚未完善) | </a>
 </div>
 <br/>
 <div align="center">
@@ -14,7 +14,7 @@
 
 ## Introduction
 
-This project implements several modules including weather information retrieval, daily records, memory records, settings management, temperature chart display, and AI assistant interaction.
+The project implements modules including weather information retrieval, important date reminders, memo system, settings management, temperature chart visualization, and local AI assistant interaction **(requires ollama's rzline/Tifa-DeepsexV2-7b-0218-Q4_KM.gguf:latest model support)**.  
 
 ## Basic Information
 
@@ -31,24 +31,23 @@ This project is suitable for team collaboration, where different team members ca
 
 ## Resources
 
-- Development Documentation: <https://docs.qq.com/doc/DWFVsdkFXRU50d05i>
-- User Documentation: <https://docs.qq.com/doc/DWGtrcmdKb0NmUVNp>
+- Development Documentation: <https://docs.qq.com/doc/DWFVsdkFXRU50d05i>  
+- User Documentation: <https://docs.qq.com/doc/DWGtrcmdKb0NmUVNp>  
 
 ## Poem
 
-In primal chaos where all things began,
-Silent thunder shakes the heavens' span.
-Mystic gears of fate in motion turn,
-Holding cosmos' pivot - all to discern.
+In primal chaos where all things began,  
+Silent thunder shakes the heavens' span.  
+Mystic gears of fate in motion turn,  
+Holding cosmos' pivot - all to discern.  
 
 UndefineAgent  
 
-Delving undefined depths profound,
-Holding mysteries in grasp unbound.
-With ancient wisdom as its soul,
-And modern tech to make it whole,
-Builds
-This desktop pivot of control.
+Delving undefined depths profound,  
+Holding mysteries in grasp unbound.  
+With ancient wisdom as its soul,  
+And modern tech to make it whole,  
+Builds this desktop pivot of control.  
 
 ## Tips
 

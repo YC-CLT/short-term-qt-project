@@ -1,10 +1,10 @@
 # 短期Qtプロジェクト
 
 <div align="center">
-    <a href="README.md" alt="中文" width="800">中文(简体)</a>
-    <a href="README_LZH.md" alt="文言" width="800">文言(尚未完善)</a>
-    <a href="README_JP.md" alt="日本語" width="800">日本語(尚未完善)</a>
-    <a href="README_EN.md" alt="English" width="800">English(尚未完善)</a>
+    <a href="README.md" alt="中文" width="800">中文(简体) | </a>
+    <a href="README_LZH.md" alt="文言" width="800">文言(尚未完善) | </a>
+    <a href="README_JP.md" alt="日本語" width="800">日本語(尚未完善) | </a>
+    <a href="README_EN.md" alt="English" width="800">English(尚未完善) | </a>
 </div>
 <br/>
 <div align="center">
@@ -18,12 +18,14 @@ Qtフレームワークを基盤としたGUIアプリケーション開発プロ
 
 ## 機能一覧
 
-・天気情報取得
-・日記記録機能
-・メモ保存機能
-・設定管理
-・温度変化グラフ
-・AIチャットモジュール
+当プロジェクトは下記モジュールを実装しております：
+
+- 天気情報取得
+- 記念日リマインダー
+- メモ帳機能
+- 設定管理パネル
+- 温度変化チャート表示
+- ローカルAIアシスタント連携（要ollamaのrzline/Tifa-DeepsexV2-7b-0218-Q4_KM.gguf:latestモデル対応）
 
 ## 研磨の要
 
@@ -32,22 +34,20 @@ Qtフレームワークを基盤としたGUIアプリケーション開発プロ
 
 ## 関連資料
 
-・開発文書 <https://docs.qq.com/doc/DWFVsdkFXRU50d05i>
+・開発文書 <https://docs.qq.com/doc/DWFVsdkFXRU50d05i>  
 ・利用ガイド <https://docs.qq.com/doc/DWGtrcmdKb0NmUVNp>
-
-## 詩
 
 ## 詩曰
 
-太初未名は混沌を啓き
-淵默雷声は九重に響く
-玄機万変 璿璣巡り
-枢は乾坤を掌中に融す
+太初未名は混沌を啓き  
+淵默雷声は九重に響く  
+玄機万変 璿璣巡り  
+枢は乾坤を掌中に融す  
 
-未淵玄枢（ウェイユエンシュアンシュ）——
-未定義の深淵に沈潜し、精巧な設計を掌中に収む
-先人の哲思を魂とし、現代技術を骨格とし
-このデスクトップシステムの中核を築く
+未淵玄枢（ウェイユエンシュアンシュ）——  
+未定義の深淵に沈潜し、精巧な設計を掌中に収む  
+先人の哲思を魂とし、現代技術を骨格とし  
+このデスクトップシステムの中核を築く  
 
 ## ポイント
 

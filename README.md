@@ -1,10 +1,10 @@
 # 小学期Qt作业
 
 <div align="center">
-    <a href="README.md" alt="中文" width="800">中文(简体)</a>
-    <a href="README_LZH.md" alt="文言" width="800">文言(尚未完善)</a>
-    <a href="README_JP.md" alt="日本語" width="800">日本語(尚未完善)</a>
-    <a href="README_EN.md" alt="English" width="800">English(尚未完善)</a>
+    <a href="README.md" alt="中文" width="800">中文(简体) | </a>
+    <a href="README_LZH.md" alt="文言" width="800">文言(尚未完善) | </a>
+    <a href="README_JP.md" alt="日本語" width="800">日本語(尚未完善) | </a>
+    <a href="README_EN.md" alt="English" width="800">English(尚未完善) | </a>
 </div>
 <br/>
 <div align="center">
@@ -18,7 +18,7 @@
 
 ## 基本信息
 
-该项目实现了天气信息获取、每日记录、内存记录、设置管理、温度图表展示以及AI助手交互等模块。
+该项目实现了天气信息获取、重要日提醒、备忘录、设置管理、温度图表展示以及本地AI助手交互 **(需要ollama的rzline/Tifa-DeepsexV2-7b-0218-Q4_KM.gguf:latest模型支持)** 等模块。
 
 ## 优化点
 
@@ -36,15 +36,15 @@
 
 ## 诗曰
 
-太初未名启鸿蒙，
-渊默雷声动九重。
-玄机万化璇玑转，
-枢执乾坤掌中融。
+太初未名启鸿蒙，  
+渊默雷声动九重。  
+玄机万化璇玑转，  
+枢执乾坤掌中融。  
 
-未渊玄枢者——
-沉潜未定义之深渊，执掌玄妙于方寸。
-以先贤哲思为魂，以现代科技为骨，
-筑此桌面乾坤枢纽。
+未渊玄枢者——  
+沉潜未定义之深渊，执掌玄妙于方寸。  
+以先贤哲思为魂，以现代科技为骨，  
+筑此桌面乾坤枢纽。  
 
 ## 小贴士
 
