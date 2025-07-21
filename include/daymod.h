@@ -39,7 +39,6 @@ private:
     Ui::MainWindow* ui;  // 添加UI指针成员
     QSqlTableModel* model;  // 模型指针
     QSqlDatabase dayDb;  // 添加数据库成员变量声明
-
 };
 
 class BoolDelegate : public QStyledItemDelegate

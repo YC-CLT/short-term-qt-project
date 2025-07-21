@@ -59,7 +59,7 @@ private slots:
                                 const QString &windScale,
                                 const QString &humidity,
                                 const QString &updateTime);
-    void updateWeather2Info(const QString &updateTime2,
+    void updateWeatherInfo2(const QString &updateTime2,
                             const QList<QString> &fxDate,
                             const QList<QString> &sunrise,
                             const QList<QString> &sunset,

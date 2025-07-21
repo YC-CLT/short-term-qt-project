@@ -57,7 +57,7 @@ void TemperatureChart::paintEvent(QPaintEvent *event)
         float yPos = chartRect.bottom() - (chartRect.height() * i / yTickCount);
         
         // 绘制刻度线
-        painter.drawLine(chartRect.left() + 625, yPos, chartRect.left(), yPos);
+        painter.drawLine(chartRect.left() + 700, yPos, chartRect.left(), yPos);
         // 绘制刻度值
         painter.drawText(QRectF(chartRect.left() - horizontalPadding , yPos - 10, 
                               horizontalPadding , 12), 

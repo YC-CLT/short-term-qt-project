@@ -16,8 +16,11 @@ AIAgent::AIAgent(QWidget *parent, Ui::MainWindow* mainUi)
     // 初始化消息样式
     initMessageStyle();
 
-    // 新增清除按钮连接
+    // 清除按钮连接
     connect(ui->AIClearButton, &QPushButton::clicked, this, &AIAgent::clearChatHistory);
+
+    // 主题切换连接
+    connect(qobject_cast<MainWindow*>(parent), &MainWindow::themeChanged, this, &AIAgent::setTheme);
 }
 
 // 在类中添加新的槽函数实现
@@ -169,13 +172,12 @@ void AIAgent::initMessageStyle()
 {
     // 默认使用深色模式
     ui->AITextBrowser->document()->setDefaultStyleSheet("");
-    setTheme(true);
 }
 
 void AIAgent::setTheme(bool dark)
 {
     if(dark) {
-        QMessageBox::information(this, "提示", "深色模式已启用");
+        //MessageBox::information(this, "提示", "深色模式已启用");
         // 深色模式样式,有需要再开
         QString styleSheet = 
             //"div.user-msg {"
@@ -225,7 +227,7 @@ void AIAgent::setTheme(bool dark)
         ui->AITextBrowser->setStyleSheet(""); // 强制刷新样式
         
     } else {
-        QMessageBox::information(this, "提示", "浅色模式已启用");
+        //QMessageBox::information(this, "提示", "浅色模式已启用");
         // 浅色模式样式,有需要再开
         QString styleSheet =
            // "div.user-msg {"

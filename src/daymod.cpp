@@ -88,10 +88,11 @@ DayMod::DayMod(QWidget* parent, Ui::MainWindow* mainUi) : QWidget(parent), ui(ma
             "BEGIN "
             "INSERT INTO operation_logs (event_id, change_type, change_details) "
             "VALUES (NEW.id, 'UPDATE', "
-            "'事件修改: ' || "
-            "CASE WHEN OLD.event_name != NEW.event_name THEN '名称: ' || OLD.event_name || '→' || NEW.event_name || '; ' ELSE '' END || "
-            "CASE WHEN OLD.event_date != NEW.event_date THEN '日期: ' || OLD.event_date || '→' || NEW.event_date || '; ' ELSE '' END || "
-            "CASE WHEN OLD.remarks != NEW.remarks THEN '备注: ' || OLD.remarks || '→' || NEW.remarks ELSE '' END); "
+            "TRIM('事件修改: ' || "
+            "CASE WHEN OLD.event_name IS NOT NEW.event_name THEN '名称: ' || OLD.event_name || '→' || NEW.event_name || '; ' ELSE '' END || "
+            "CASE WHEN OLD.event_date IS NOT NEW.event_date THEN '日期: ' || OLD.event_date || '→' || NEW.event_date || '; ' ELSE '' END || "
+            "CASE WHEN OLD.remarks IS NOT NEW.remarks THEN '备注: ' || IFNULL(OLD.remarks,'NULL') || '→' || IFNULL(NEW.remarks,'NULL') ELSE '' END, "
+            "' ;')); "
             "END",
             
             "CREATE TRIGGER log_delete AFTER DELETE ON important_days "
@@ -110,8 +111,8 @@ DayMod::DayMod(QWidget* parent, Ui::MainWindow* mainUi) : QWidget(parent), ui(ma
                 return;
             }
         }
+        QMessageBox::information(this, "初始化成功", "数据库初始化成功"); 
     }   
-    QMessageBox::information(this, "初始化成功", "数据库初始化成功"); 
 
     // 初始化模型
     model = new QSqlTableModel(this, dayDb);
@@ -318,6 +319,7 @@ void DayMod::updateFirstEventMessage()
 {
     if(!model || model->rowCount() == 0) {
         ui->dayMessageLabel->setText("暂无待办事项");
+        ui->dayHomeLabel->setText("暂无待办事项");
         return;
     }
 

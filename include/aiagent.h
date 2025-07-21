@@ -40,23 +40,22 @@ public:
     void setSystemPrompt(const QString &prompt);  // 新增设置系统提示词的函数
 
 signals:
-    // 保持现有信号不变
     void messageReceived(const QString& message);
 
 public slots:
-    void clearChatHistory();  // 新增清除功能
+    void clearChatHistory();  // 清除聊天历史
     void setTheme(bool theme);
     void sendMessage();
 
 private:
-    // 已有成员变量保持不变
     Ui::MainWindow* ui;
     QNetworkAccessManager* manager;
     QNetworkReply* reply;
     QString systemPrompt;  // 系统提示词
     
-    // 新增的成员变量已正确定义
-    QList<QJsonObject> messageHistory;  
+    // 历史记录的json对象
+    QList<QJsonObject> messageHistory; 
+    // 最新的回复
     QString currentResponse;            
 };
 

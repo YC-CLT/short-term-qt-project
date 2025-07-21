@@ -84,7 +84,8 @@ MemMod::MemMod(QWidget* parent, Ui::MainWindow* mainUi):QWidget(parent), ui(main
                 QMessageBox::warning(this, "创建触发器失败", query.lastError().text());
                 return;
             }
-        }        
+        }
+        QMessageBox::information(this, "初始化成功", "数据库初始化成功");         
     }
 
 // 初始化数据模型

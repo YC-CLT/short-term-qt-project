@@ -3631,7 +3631,7 @@
         </font>
        </property>
        <property name="text">
-        <string>AI Agent</string>
+        <string> 未渊姬</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignmentFlag::AlignCenter</set>

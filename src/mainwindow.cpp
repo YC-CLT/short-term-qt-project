@@ -56,7 +56,7 @@ MainWindow::MainWindow(QWidget *parent)
     // 初始化天气模块
     weatherMod = new WeatherMod(this);
     connect(weatherMod, &WeatherMod::weather1DataUpdated, this, &MainWindow::updateWeatherInfo);
-    connect(weatherMod, &WeatherMod::weather2DataUpdated, this, &MainWindow::updateWeather2Info);
+    connect(weatherMod, &WeatherMod::weather2DataUpdated, this, &MainWindow::updateWeatherInfo2);
     connect(weatherMod, &WeatherMod::locationDataUpdated, this, [this](const QString &location) {
         ui->todayWeatherLabel->setText("今日"+location+"天气：");
         ui->locationLabel->setText(location);
@@ -199,7 +199,7 @@ void MainWindow::updateWeatherInfo(const QString &temp,
     }
 }
 // 24小时预报
-void MainWindow::updateWeather2Info(const QString &updateTime2,
+void MainWindow::updateWeatherInfo2(const QString &updateTime2,
                                 const QList<QString> &fxDate,
                                 const QList<QString> &sunrise,
                                 const QList<QString> &sunset,
@@ -237,7 +237,6 @@ void MainWindow::updateWeather2Info(const QString &updateTime2,
 
 
     // 加载SVG图片并适应标签大小
-
     for(int i = 0; i < 7; i++) {
         QLabel* moonLabel = findChild<QLabel*>(QString("moonCodeLabel_%1").arg(i+1));
         if(moonLabel) {
